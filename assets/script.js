@@ -21,9 +21,9 @@
  
   const slide =   ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png"];
   const tagline = ["Impressions tous formats <span>en boutique et en ligne</span>", 
-  				   "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
-  				   "Grand choix de couleurs <span>de CMJN aux pantones</span>",
-  				   "Autocollants <span>avec découpe laser sur mesure</span>",];
+  				"Tirages haute définition grand format <span>pour vos bureaux et events</span>",
+  				"Grand choix de couleurs <span>de CMJN aux pantones</span>",
+  				"Autocollants <span>avec découpe laser sur mesure</span>",];
 let numero = 0;
 /*Grâce aux évènements onclick sur les flèches latérales, le code JavaScript lance la fonction ChangeSlide() 
 en passant le paramètre -1 pour la flèche gauche et 1 pour la flèche droite.*/
