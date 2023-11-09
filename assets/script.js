@@ -1,4 +1,4 @@
-/*const slide = [
+const slide = [
 	{
 		image: "slide1.jpg" ,
 		tagLine:
@@ -17,13 +17,18 @@
 	  image: "slide4.png",
 	  tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
 	},
-  ];*/
+	{
+		image: "slide2.jpg",
+		tagLine:
+		  "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
+	  },
+	  {
+		image: "slide4.png",
+		tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
+	  },
+  ];
  
-  const slide =   ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png"];
-  const tagline = ["Impressions tous formats <span>en boutique et en ligne</span>", 
-  				"Tirages haute définition grand format <span>pour vos bureaux et events</span>",
-  				"Grand choix de couleurs <span>de CMJN aux pantones</span>",
-  				"Autocollants <span>avec découpe laser sur mesure</span>",];
+
 let numero = 0;
 /*Grâce aux évènements onclick sur les flèches latérales, le code JavaScript lance la fonction ChangeSlide() 
 en passant le paramètre -1 pour la flèche gauche et 1 pour la flèche droite.*/
@@ -45,16 +50,16 @@ pour calculer le slide sur le quelle on va atirire quand on clique sur suivant e
     if (numero > slide.length - 1)
         numero = 0;
 	updateDots(numero) // Mettez à jour les points indicateurs
-    document.getElementById("slide").src ="./assets/images/slideshow/" +slide[numero];
+    document.getElementById("slide").src ="./assets/images/slideshow/" +slide[numero].image;
 
 	const p = document.getElementById("tagline");
-	p.innerHTML=tagline[numero] ;
+	p.innerHTML=slide[numero].tagLine ;
 	if (numero < 0)
-        numero = tagline.length - 1;
-    if (numero > tagline.length - 1)
+        numero = slide[numero].tagLine.length - 1;
+    if (numero > slide[numero].tagLine.length - 1)
         numero = 0;
 	updateDots(numero) // Mettez à jour les points indicateurs
-    document.getElementById("tagline")=tagline[numero];
+    document.getElementById("tagline")=slide[numero].tagLine;
 }
 
 //function updateDots(index) qui nous permet de styliser le point de la nouvelle position.
@@ -70,3 +75,14 @@ function updateDots(index) {
         }
     });
 }
+
+function createDots(){
+	const dots = document.querySelector(".dots");	
+   for (let index = 0; index < slide.length; index++) {
+	   // Pour chaque element dans la boucle je vais créer un dot
+	   const dot= document.createElement("div");
+	   dot.setAttribute("class", "dot");
+	   dots.appendChild(dot);
+   } 
+}
+createDots()
