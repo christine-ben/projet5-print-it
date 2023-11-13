@@ -57,13 +57,13 @@ Incrémente ou décrémente l'indice de l'image en fonction de la direction*/
 
 	 // Vérifie si l'indice dépasse la fin du tableau d'images
 	 // Si l'indice est négatif,(<0) boucle jusqu'à la dernière image
-	  if (numero < 0) numero = slide.length - 1;
+	  if (numero < 0)
+	 numero = slide.length - 1;
 
 	// Si l'indice dépasse la dernière image(>0), boucle jusqu'à la première image
-	  if (numero > slide.length - 1) numero = 0;
+	  if (numero > slide.length - 1)
+	   numero = 0;
 	  
-	 
-	 
 	  // Met à jour l'image et la légende de l'image affichée
 	  document.getElementById("slide").src = "./assets/images/slideshow/" + slide[numero].image;
 	  document.getElementById("tagline").innerHTML = slide[numero].tagLine;
@@ -86,8 +86,15 @@ Incrémente ou décrémente l'indice de l'image en fonction de la direction*/
 		  const dot = document.createElement("div");
 		   // Ajoute la classe "dot" à l'élément div créé
 		  dot.classList.add("dot");
+
 		  /* Ajoute d'un écouteur de clic qui appelle ChangeSlide avec la différence entre 
-		  l'indice actuel et celui du point*/
+		  l'indice actuel et celui du point
+		  La méthode addEventlistener() prend trois paramètres:
+			element.addEventlistener('evenement', NomDeFonction, Boolean);
+
+			evenement : le nom de l’névenement que vous voulez écouter ( blur, click, … );
+			Le code que vous voulez, ça peut être une fonction que vous avez déclarer ou bien une fonction anonyme.
+			Un boolean indiquant l’évolution des événements, par défaut cette valeur vaut false.*/
 		  dot.addEventListener('click', () => ChangeSlide(i - numero));
 		  //rattacher l'element a leur parant avec la balise appendChaild sur le parant
 		  dots.appendChild(dot);
